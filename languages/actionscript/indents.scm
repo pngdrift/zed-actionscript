@@ -1,0 +1,2 @@
+("{" "}" @end) @indent
+("[" "]" @end) @indent
