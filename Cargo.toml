@@ -1,0 +1,11 @@
+[package]
+name = "zed-actionscript"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "src/as.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+zed_extension_api = "0.2.0"
