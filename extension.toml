@@ -1,7 +1,7 @@
 id = "actionscript"
 name = "ActionScript"
-description = "ActionScript syntax highlighting"
-version = "0.0.1"
+description = "ActionScript langauge support"
+version = "0.1.0"
 schema_version = 1
 authors = ["pngdrift"]
 repository = "https://github.com/pngdrift/zed-actionscript"
@@ -9,3 +9,7 @@ repository = "https://github.com/pngdrift/zed-actionscript"
 [grammars.actionscript]
 repository = "https://github.com/Rileran/tree-sitter-actionscript"
 commit = "24919034fc78fdf9bedaac6616b6a60af20ab9b5"
+
+[language_servers.actionscript]
+name = "as3mxml"
+languages = ["ActionScript"]

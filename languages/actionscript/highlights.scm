@@ -55,10 +55,8 @@
   name: (identifier) @type)
 
 (member_expression
-  object: (identifier) @type)
-
-(call_expression
-  function: (identifier) @type)
+  object: (identifier) @type
+  (#eq? @type "this"))
 
 (new_expression
   (identifier) @type)
