@@ -2,13 +2,22 @@
 ActionScript language support for [Zed](https://github.com/zed-industries/zed).
 
 ## Configuration
-In the `settings.json` file, you need to add the path to the SDK:
+In the `settings.json` file, you need to add the path to the SDK.
+Additionally, you can configure formatting settings.
 ```jsonc
 {
   "lsp": {
     "actionscript": {
       "initialization_options": {
         "sdk_path": "/path/to/sdk"
+      },
+      "format": {
+        "insertSpaceAfterCommaDelimiter": true,
+        "insertSpaceAfterSemicolonInForStatements": false,
+        "insertSpaceAtStartOfLineComment": true,
+        "insertSpaceBeforeAndAfterBinaryOperators": true,
+        "insertSpaceBetweenMetadataAttributes": false,
+        "placeOpenBraceOnNewLine": false
       }
     }
   }

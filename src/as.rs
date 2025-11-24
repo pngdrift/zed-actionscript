@@ -4,6 +4,7 @@ use zed::LanguageServerId;
 use zed_extension_api::{
     self as zed,
     lsp::{Completion, CompletionKind},
+    serde_json::{json},
     settings::LspSettings,
     CodeLabelSpan, Result,
 };
@@ -62,7 +63,7 @@ impl zed::Extension for As3Extension {
         });
 
         if sdk_path.is_none() {
-            return Err("SDK path not configured in settings, see https://github.com//pngdrift/zed-actionscript/".to_string());
+            return Err("SDK path not configured in settings, see https://github.com/pngdrift/zed-actionscript/".to_string());
         }
 
         let sdk_path = sdk_path.unwrap();
@@ -96,6 +97,21 @@ impl zed::Extension for As3Extension {
             ],
             env: Default::default(),
         })
+    }
+
+    fn language_server_workspace_configuration(
+        &mut self,
+        _server_id: &zed_extension_api::LanguageServerId,
+        worktree: &zed_extension_api::Worktree,
+    ) -> Result<Option<zed_extension_api::serde_json::Value>> {
+        let initialization_options = LspSettings::for_worktree("actionscript", worktree)
+            .ok()
+            .and_then(|lsp_settings| lsp_settings.initialization_options.clone())
+            .unwrap_or_default();
+        let settings = json!({
+            "as3mxml": initialization_options
+        });
+        Ok(Some(settings))
     }
 
     fn label_for_completion(
