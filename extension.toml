@@ -1,7 +1,7 @@
 id = "actionscript"
 name = "ActionScript"
 description = "ActionScript langauge support"
-version = "0.1.0"
+version = "0.1.1"
 schema_version = 1
 authors = ["pngdrift"]
 repository = "https://github.com/pngdrift/zed-actionscript"
